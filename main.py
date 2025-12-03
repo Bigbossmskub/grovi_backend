@@ -119,3 +119,25 @@ if __name__ == "__main__":
         print(f"❌ Failed to start server: {e}")
         import traceback
         traceback.print_exc()
+
+# ... ด้านบนเหมือนเดิม
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:5173",
+        "https://grovi-ak7w.vercel.app",      # ← ใส่โดเมนหน้าเว็บ
+        # ถ้ามีโดเมนจริงของคุณ ให้เพิ่มบรรทัดนี้ด้วย เช่น
+        # "https://grovi.myweb.cmu.ac.th",
+        "https://flour-memo-regards-legend.trycloudflare.com",
+        "https://sf-polyphonic-scanners-maintenance.trycloudflare.com",
+        "https://postage-msie-skilled-insulin.trycloudflare.com",
+        "https://visitors-hc-assign-glasses.trycloudflare.com",
+    ],
+    allow_origin_regex=r"^https://[a-zA-Z0-9-]+\.trycloudflare\.com$",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
